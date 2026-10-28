@@ -5,6 +5,7 @@
 <title>Plan de trabajo — Mejora del SITR con RTU Orion MX — Cementos Melón</title>
 <style>
   @page { size: A4; margin: 2.6cm 2.5cm 2.2cm 2.5cm; }
+  @page apaisada { size: A4 landscape; margin: 2cm; }
   :root {
     --azul: #1F3864;        /* azul marino: títulos y encabezados de tabla */
     --azul-osc: #16264A;    /* banda de portada */
@@ -102,6 +103,9 @@
 
   .pie-obj { font-size:8.5pt; color:var(--gris); font-style:italic; margin:0 0 4mm; }
   figure { margin:4mm 0 3mm; page-break-inside:avoid; }
+  /* las figuras se dibujan a 971 px = A4 horizontal; se aíslan en su
+     propia página apaisada para que no se encojan al imprimir */
+  figure.ancha { page: apaisada; page-break-before:always; page-break-after:always; }
   figure svg { display:block; margin:0 auto; border:.7pt solid var(--gris-linea); border-radius:3px;
                 background:#fff; }
   figcaption { font-size:8.5pt; color:var(--gris); font-style:italic; margin-top:1.5mm;
@@ -266,68 +270,71 @@ concentra las señales de los equipos de campo y las publica hacia el Coordinado
 entrega la referencia de tiempo a la RTU y a los equipos que lo soporten; y el switch Hermes 2000
 provee la red OT segmentada sobre la que se transporta todo el tráfico.</p>
 
-<figure>
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto;max-width:980px" viewBox="0 0 980 678" font-family="Arial,Helvetica,sans-serif">
+<figure class="ancha">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto" viewBox="0 0 971 696" font-family="Arial,Helvetica,sans-serif">
 <defs>
 <marker id="arrow-f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1F3864"/></marker>
 <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#595959"/></marker>
 <marker id="arrow-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3FA9BE"/></marker>
 <marker id="arrow-v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1E7B34"/></marker>
 </defs>
-<rect width="100%" style="height:auto;max-width:980px" fill="#FFFFFF"/>
-<rect x="30" y="26" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="30" y="26" width="5" height="104" fill="#4A5568"/>
-<text x="46" y="45" font-size="10" font-weight="bold" fill="#4A5568" letter-spacing="1.2">EQUIPOS DE CAMPO</text>
-<rect x="117.5" y="56" width="153.1" height="54" rx="6" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
-<text x="194.0" y="77" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Relé de subfrecuencia</text>
-<text x="194.0" y="92" font-size="9" fill="#595959" text-anchor="middle">EDAC BF · bahía 44 kV</text>
-<rect x="415.0" y="56" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
-<text x="490.0" y="77" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Medidores eléctricos</text>
-<text x="490.0" y="92" font-size="9" fill="#595959" text-anchor="middle">subred de medidores</text>
-<rect x="711.0" y="56" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
-<text x="786.0" y="77" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Otras protecciones</text>
-<text x="786.0" y="92" font-size="9" fill="#595959" text-anchor="middle">del mismo gabinete</text>
-<rect x="30" y="192" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="30" y="192" width="5" height="104" fill="#2E5A94"/>
-<text x="46" y="211" font-size="10" font-weight="bold" fill="#2E5A94" letter-spacing="1.2">RED OT Y SINCRONIZACIÓN</text>
-<rect x="193.0" y="222" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
-<text x="268.0" y="243" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Switch Hermes 2000</text>
-<text x="268.0" y="258" font-size="9" fill="#595959" text-anchor="middle">28 puertos · VLAN · RSTP</text>
-<rect x="637.0" y="222" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
-<text x="712.0" y="243" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">GPS Kronos 3R</text>
-<text x="712.0" y="258" font-size="9" fill="#595959" text-anchor="middle">GNSS · IRIG-B · ≤ ±100 µs</text>
-<rect x="30" y="358" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="30" y="358" width="5" height="104" fill="#1F3864"/>
-<text x="46" y="377" font-size="10" font-weight="bold" fill="#1F3864" letter-spacing="1.2">CONCENTRADOR</text>
-<rect x="415.0" y="388" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#1F3864" stroke-width="1.4"/>
-<text x="490.0" y="409" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">RTU Orion MX</text>
-<text x="490.0" y="424" font-size="9" fill="#595959" text-anchor="middle">OrionOS · DNP3 · alarmas</text>
-<text x="490.0" y="435" font-size="8" fill="#B07000" text-anchor="middle" font-style="italic">reemplaza al concentrador actual</text>
-<rect x="30" y="524" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="30" y="524" width="5" height="104" fill="#1E7B34"/>
-<text x="46" y="543" font-size="10" font-weight="bold" fill="#1E7B34" letter-spacing="1.2">ENLACE AL COORDINADOR</text>
-<rect x="119.0" y="554" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
-<text x="194.0" y="575" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace GTD</text>
-<text x="194.0" y="590" font-size="9" fill="#595959" text-anchor="middle">redundante</text>
-<rect x="415.0" y="554" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
-<text x="490.0" y="575" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace Movistar</text>
-<text x="490.0" y="590" font-size="9" fill="#595959" text-anchor="middle">redundante</text>
-<rect x="709.5" y="554" width="153.1" height="54" rx="6" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
-<text x="786.0" y="575" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Coordinador Eléctrico</text>
-<text x="786.0" y="590" font-size="9" fill="#595959" text-anchor="middle">señales SITR · consignas</text>
-<path d="M 194.0 110.0 C 194.0 166.0, 268.0 166.0, 268.0 222.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="231.0" y="163.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">DNP3 IP</text>
-<path d="M 490.0 110.0 C 490.0 166.0, 268.0 166.0, 268.0 222.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="379.0" y="163.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Modbus TCP</text>
-<path d="M 786.0 110.0 C 786.0 166.0, 268.0 166.0, 268.0 222.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 268.0 276.0 C 268.0 332.0, 490.0 332.0, 490.0 388.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="379.0" y="329.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Ethernet</text>
-<path d="M 712.0 276.0 C 712.0 332.0, 490.0 332.0, 490.0 388.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="601.0" y="329.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">IRIG-B / NTP</text>
-<path d="M 490.0 442.0 C 490.0 498.0, 194.0 498.0, 194.0 554.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 490.0 442.0 C 490.0 498.0, 490.0 498.0, 490.0 554.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 269.0 581.0 L 709.5 581.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 565.0 581.0 L 709.5 581.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<rect width="971" height="696" fill="#FFFFFF"/>
+<rect x="16" y="18" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="16" y="18" width="5" height="92" fill="#4A5568"/>
+<text x="32" y="37" font-size="9.5" font-weight="bold" fill="#4A5568" letter-spacing="1">EQUIPOS DE CAMPO</text>
+<rect x="106.6" y="48" width="153.1" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="183.2" y="69" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Relé de subfrecuencia</text>
+<text x="183.2" y="84" font-size="9" fill="#595959" text-anchor="middle">EDAC BF · bahía 44 kV</text>
+<rect x="410.5" y="48" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="485.5" y="69" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Medidores eléctricos</text>
+<text x="485.5" y="84" font-size="9" fill="#595959" text-anchor="middle">subred de medidores</text>
+<rect x="712.8" y="48" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="787.8" y="69" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Otras protecciones</text>
+<text x="787.8" y="84" font-size="9" fill="#595959" text-anchor="middle">del mismo gabinete</text>
+<rect x="16" y="154" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="16" y="154" width="5" height="92" fill="#2E5A94"/>
+<text x="32" y="173" font-size="9.5" font-weight="bold" fill="#2E5A94" letter-spacing="1">RED OT Y SINCRONIZACIÓN</text>
+<rect x="183.8" y="184" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
+<text x="258.8" y="205" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Switch Hermes 2000</text>
+<text x="258.8" y="220" font-size="9" fill="#595959" text-anchor="middle">28 puertos · VLAN · RSTP</text>
+<rect x="637.2" y="184" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
+<text x="712.2" y="205" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">GPS Kronos 3R</text>
+<text x="712.2" y="220" font-size="9" fill="#595959" text-anchor="middle">GNSS · IRIG-B · ≤ ±100 µs</text>
+<rect x="16" y="290" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="16" y="290" width="5" height="92" fill="#1F3864"/>
+<text x="32" y="309" font-size="9.5" font-weight="bold" fill="#1F3864" letter-spacing="1">CONCENTRADOR</text>
+<rect x="410.5" y="320" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1F3864" stroke-width="1.4"/>
+<text x="485.5" y="341" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">RTU Orion MX</text>
+<text x="485.5" y="356" font-size="9" fill="#595959" text-anchor="middle">OrionOS · DNP3 · alarmas</text>
+<text x="485.5" y="363" font-size="8" fill="#B07000" text-anchor="middle" font-style="italic">reemplaza al concentrador actual</text>
+<rect x="16" y="426" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="16" y="426" width="5" height="92" fill="#1E7B34"/>
+<text x="32" y="445" font-size="9.5" font-weight="bold" fill="#1E7B34" letter-spacing="1">ENLACES REDUNDANTES</text>
+<rect x="183.8" y="456" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
+<text x="258.8" y="477" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace GTD</text>
+<text x="258.8" y="492" font-size="9" fill="#595959" text-anchor="middle">camino A</text>
+<rect x="637.2" y="456" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
+<text x="712.2" y="477" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace Movistar</text>
+<text x="712.2" y="492" font-size="9" fill="#595959" text-anchor="middle">camino B</text>
+<rect x="16" y="562" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="16" y="562" width="5" height="92" fill="#0F4C2A"/>
+<text x="32" y="581" font-size="9.5" font-weight="bold" fill="#0F4C2A" letter-spacing="1">COORDINADOR</text>
+<rect x="381.8" y="592" width="207.5" height="50" rx="5" fill="#FFFFFF" stroke="#0F4C2A" stroke-width="1.4"/>
+<text x="485.5" y="613" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Coordinador Eléctrico Nacional</text>
+<text x="485.5" y="628" font-size="9" fill="#595959" text-anchor="middle">señales SITR · consignas</text>
+<path d="M 177.2 98.0 C 177.2 141.0, 236.8 141.0, 236.8 184.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="207.0" y="138.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">DNP3 IP</text>
+<path d="M 485.5 98.0 C 485.5 141.0, 258.8 141.0, 258.8 184.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="372.1" y="138.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Modbus TCP</text>
+<path d="M 793.8 98.0 C 793.8 141.0, 280.8 141.0, 280.8 184.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 255.8 234.0 C 255.8 277.0, 474.5 277.0, 474.5 320.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="365.1" y="274.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Ethernet</text>
+<path d="M 715.2 234.0 C 715.2 277.0, 496.5 277.0, 496.5 320.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="605.9" y="274.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">IRIG-B / NTP</text>
+<path d="M 485.5 370.0 C 485.5 413.0, 258.8 413.0, 258.8 456.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 485.5 370.0 C 485.5 413.0, 712.2 413.0, 712.2 456.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 255.8 506.0 C 255.8 549.0, 474.5 549.0, 474.5 592.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 715.2 506.0 C 715.2 549.0, 496.5 549.0, 496.5 592.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
 </svg>
 <figcaption>Figura 1. Arquitectura de telecontrol propuesta. Las flechas indican el sentido del flujo
 de datos y el protocolo empleado en cada tramo.</figcaption>
@@ -401,119 +408,210 @@ duraciones.</p>
   <li><b>Supuesto:</b> la adquisición de equipos es la actividad de mayor duración y gobierna la ruta crítica.</li>
 </ul>
 
-<table>
-  <caption>Tabla 5. Feriados nacionales considerados en el cronograma.</caption>
-  <thead><tr><th class="num">Fecha</th><th>Feriado</th></tr></thead>
-  <tbody>
-      <tr><td class="num">08-12-2026</td><td>Inmaculada Concepción</td></tr>
-      <tr><td class="num">25-12-2026</td><td>Navidad (irrenunciable)</td></tr>
-      <tr><td class="num">01-01-2027</td><td>Año Nuevo (irrenunciable)</td></tr>
-      <tr><td class="num">26-03-2027</td><td>Viernes Santo</td></tr>
-      <tr><td class="num">27-03-2027</td><td>Sábado Santo</td></tr>
-  </tbody>
-</table>
-
 <h2 class="sub">3.2 Carta Gantt</h2>
 
-<table>
-  <caption>Tabla 6. Carta Gantt del proyecto — duraciones en días hábiles.</caption>
-  <thead>
-    <tr>
-      <th>Actividad</th>
-      <th class="num">Días háb.</th>
-      <th class="num">Inicio</th>
-      <th class="num">Término</th>
-      <th>Duración relativa</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td class="tarea">Reunión de arranque y coordinación con Melón</td>
-        <td class="num">2</td>
-        <td class="num">23-11-2026</td>
-        <td class="num">24-11-2026</td>
-        <td class="barra"><span style="width:2.0%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Visita de levantamiento en terreno</td>
-        <td class="num">5</td>
-        <td class="num">25-11-2026</td>
-        <td class="num">01-12-2026</td>
-        <td class="barra"><span style="width:5.1%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Ingeniería básica: filosofía operacional y arquitectura</td>
-        <td class="num">8</td>
-        <td class="num">02-12-2026</td>
-        <td class="num">14-12-2026</td>
-        <td class="barra"><span style="width:8.2%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Ingeniería de detalle: planos, protocolos y listado de variables</td>
-        <td class="num">12</td>
-        <td class="num">15-12-2026</td>
-        <td class="num">31-12-2026</td>
-        <td class="barra"><span style="width:12.2%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Adquisición de equipos (Orion MX, Kronos, Hermes)</td>
-        <td class="num">30</td>
-        <td class="num">04-01-2027</td>
-        <td class="num">12-02-2027</td>
-        <td class="barra"><span style="width:30.6%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Armado de armario y montaje de equipos</td>
-        <td class="num">8</td>
-        <td class="num">15-02-2027</td>
-        <td class="num">24-02-2027</td>
-        <td class="barra"><span style="width:8.2%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Configuración de RTU, GPS, switch y HMI</td>
-        <td class="num">10</td>
-        <td class="num">25-02-2027</td>
-        <td class="num">10-03-2027</td>
-        <td class="barra"><span style="width:10.2%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Pruebas FAT en taller</td>
-        <td class="num">5</td>
-        <td class="num">11-03-2027</td>
-        <td class="num">17-03-2027</td>
-        <td class="barra"><span style="width:5.1%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Montaje en planta</td>
-        <td class="num">5</td>
-        <td class="num">18-03-2027</td>
-        <td class="num">24-03-2027</td>
-        <td class="barra"><span style="width:5.1%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Pruebas SAT locales</td>
-        <td class="num">3</td>
-        <td class="num">25-03-2027</td>
-        <td class="num">30-03-2027</td>
-        <td class="barra"><span style="width:3.1%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Pruebas SAT con el Coordinador</td>
-        <td class="num">5</td>
-        <td class="num">31-03-2027</td>
-        <td class="num">06-04-2027</td>
-        <td class="barra"><span style="width:5.1%"></span></td>
-      </tr>
-      <tr>
-        <td class="tarea">Carpeta TOP e informe final</td>
-        <td class="num">5</td>
-        <td class="num">07-04-2027</td>
-        <td class="num">13-04-2027</td>
-        <td class="barra"><span style="width:5.1%"></span></td>
-      </tr>
-  </tbody>
-</table>
-<p class="pie-obj">Tabla 6. La barra es proporcional a la duración de la actividad respecto del total del proyecto.</p>
+<figure class="ancha">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto" viewBox="0 0 971 283" font-family="Arial,Helvetica,sans-serif">
+<rect width="971" height="283" fill="#FFFFFF"/>
+<rect x="496.9" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="500.3" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="520.6" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="524.0" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="544.4" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="547.7" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="568.1" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="571.5" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="591.8" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="595.2" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="615.5" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="618.9" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="639.2" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="642.6" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="662.9" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="666.3" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="686.6" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="690.0" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="710.3" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="713.7" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="734.0" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="737.4" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="757.8" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="761.1" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="781.5" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="784.9" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="805.2" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="808.6" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="828.9" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="832.3" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="852.6" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="856.0" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="876.3" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="879.7" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="900.0" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="903.4" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="923.7" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="927.1" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="947.5" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="950.8" y="45" width="3.4" height="208" fill="#E8ECF2"/>
+<rect x="10" y="10" width="450" height="31" fill="#1F3864"/>
+<text x="5" y="27" font-size="8.0" font-weight="bold" fill="#FFFFFF">Id</text>
+<text x="26" y="27" font-size="8.0" font-weight="bold" fill="#FFFFFF">Nombre de tarea</text>
+<text x="336" y="27" font-size="8.0" font-weight="bold" fill="#FFFFFF">Duración</text>
+<text x="378" y="27" font-size="8.0" font-weight="bold" fill="#FFFFFF">Comienzo</text>
+<text x="434" y="27" font-size="8.0" font-weight="bold" fill="#FFFFFF">Fin</text>
+<rect x="480.0" y="10" width="27.1" height="18" fill="#1F3864" stroke="#FFFFFF" stroke-width=".6"/>
+<text x="493.5" y="22" font-size="8.0" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Nov</text>
+<rect x="507.1" y="10" width="105.0" height="18" fill="#1F3864" stroke="#FFFFFF" stroke-width=".6"/>
+<text x="559.6" y="22" font-size="8.0" font-weight="bold" fill="#FFFFFF" text-anchor="middle">diciembre 2026</text>
+<rect x="612.1" y="10" width="105.0" height="18" fill="#1F3864" stroke="#FFFFFF" stroke-width=".6"/>
+<text x="664.6" y="22" font-size="8.0" font-weight="bold" fill="#FFFFFF" text-anchor="middle">enero 2027</text>
+<rect x="717.1" y="10" width="94.8" height="18" fill="#1F3864" stroke="#FFFFFF" stroke-width=".6"/>
+<text x="764.5" y="22" font-size="8.0" font-weight="bold" fill="#FFFFFF" text-anchor="middle">febrero 2027</text>
+<rect x="812.0" y="10" width="105.0" height="18" fill="#1F3864" stroke="#FFFFFF" stroke-width=".6"/>
+<text x="864.5" y="22" font-size="8.0" font-weight="bold" fill="#FFFFFF" text-anchor="middle">marzo 2027</text>
+<rect x="917.0" y="10" width="44.0" height="18" fill="#1F3864" stroke="#FFFFFF" stroke-width=".6"/>
+<text x="939.0" y="22" font-size="8.0" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Abril</text>
+<rect x="480.0" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="491.9" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">23</text>
+<rect x="503.7" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="515.6" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">30</text>
+<rect x="527.4" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="539.3" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">7</text>
+<rect x="551.1" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="563.0" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">14</text>
+<rect x="574.8" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="586.7" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">21</text>
+<rect x="598.6" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="610.4" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">28</text>
+<rect x="622.3" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="634.1" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">4</text>
+<rect x="646.0" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="657.8" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">11</text>
+<rect x="669.7" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="681.5" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">18</text>
+<rect x="693.4" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="705.3" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">25</text>
+<rect x="717.1" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="729.0" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">1</text>
+<rect x="740.8" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="752.7" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">8</text>
+<rect x="764.5" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="776.4" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">15</text>
+<rect x="788.2" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="800.1" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">22</text>
+<rect x="812.0" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="823.8" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">1</text>
+<rect x="835.7" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="847.5" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">8</text>
+<rect x="859.4" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="871.2" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">15</text>
+<rect x="883.1" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="894.9" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">22</text>
+<rect x="906.8" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="918.7" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">29</text>
+<rect x="930.5" y="28" width="23.7" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="942.4" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">5</text>
+<rect x="954.2" y="28" width="6.8" height="13" fill="#2E5A94" stroke="#FFFFFF" stroke-width=".4"/>
+<text x="957.6" y="37" font-size="6.5" fill="#FFFFFF" text-anchor="middle">12</text>
+<line x1="480.0" y1="45" x2="480.0" y2="253" stroke="#C6CDD8" stroke-width=".6"/>
+<line x1="507.1" y1="45" x2="507.1" y2="253" stroke="#C6CDD8" stroke-width=".6"/>
+<line x1="612.1" y1="45" x2="612.1" y2="253" stroke="#C6CDD8" stroke-width=".6"/>
+<line x1="717.1" y1="45" x2="717.1" y2="253" stroke="#C6CDD8" stroke-width=".6"/>
+<line x1="812.0" y1="45" x2="812.0" y2="253" stroke="#C6CDD8" stroke-width=".6"/>
+<line x1="917.0" y1="45" x2="917.0" y2="253" stroke="#C6CDD8" stroke-width=".6"/>
+<rect x="10" y="45" width="951" height="16" fill="#F2F5F9"/>
+<text x="5" y="55.5" font-size="7.0" fill="#595959">1</text>
+<text x="26" y="55.5" font-size="7.5" fill="#1F3864" font-weight="bold">Proyecto completo</text>
+<text x="336" y="55.5" font-size="7.0" fill="#595959">98 d</text>
+<text x="378" y="55.5" font-size="7.0" fill="#595959">lun 23-11-26</text>
+<text x="434" y="55.5" font-size="7.0" fill="#595959">mar 13-04-27</text>
+<rect x="480.0" y="50.0" width="481.0" height="6" fill="#1F3864"/>
+<path d="M 483.0 47.0 L 480.0 47.0 L 480.0 59.0 L 483.0 59.0" fill="none" stroke="#1F3864" stroke-width="1.3"/>
+<path d="M 958.0 47.0 L 961.0 47.0 L 961.0 59.0 L 958.0 59.0" fill="none" stroke="#1F3864" stroke-width="1.3"/>
+<text x="5" y="71.5" font-size="7.0" fill="#595959">2</text>
+<text x="42" y="71.5" font-size="7.5" fill="#1F3050" font-weight="normal">Reunión de arranque y coordinación con Melón</text>
+<text x="336" y="71.5" font-size="7.0" fill="#595959">2 d</text>
+<text x="378" y="71.5" font-size="7.0" fill="#595959">lun 23-11-26</text>
+<text x="434" y="71.5" font-size="7.0" fill="#595959">mar 24-11-26</text>
+<rect x="480.0" y="65.0" width="6.8" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="87.5" font-size="7.0" fill="#595959">3</text>
+<text x="42" y="87.5" font-size="7.5" fill="#1F3050" font-weight="normal">Visita de levantamiento en terreno</text>
+<text x="336" y="87.5" font-size="7.0" fill="#595959">5 d</text>
+<text x="378" y="87.5" font-size="7.0" fill="#595959">mié 25-11-26</text>
+<text x="434" y="87.5" font-size="7.0" fill="#595959">mar 01-12-26</text>
+<rect x="486.8" y="81.0" width="23.7" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="103.5" font-size="7.0" fill="#595959">4</text>
+<text x="42" y="103.5" font-size="7.5" fill="#1F3050" font-weight="normal">Ingeniería básica: filosofía operacional y arquitectura</text>
+<text x="336" y="103.5" font-size="7.0" fill="#595959">8 d</text>
+<text x="378" y="103.5" font-size="7.0" fill="#595959">mié 02-12-26</text>
+<text x="434" y="103.5" font-size="7.0" fill="#595959">lun 14-12-26</text>
+<rect x="510.5" y="97.0" width="44.0" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="119.5" font-size="7.0" fill="#595959">5</text>
+<text x="42" y="119.5" font-size="7.5" fill="#1F3050" font-weight="normal">Ingeniería de detalle: planos, protocolos y listado de variables</text>
+<text x="336" y="119.5" font-size="7.0" fill="#595959">12 d</text>
+<text x="378" y="119.5" font-size="7.0" fill="#595959">mar 15-12-26</text>
+<text x="434" y="119.5" font-size="7.0" fill="#595959">jue 31-12-26</text>
+<rect x="554.5" y="113.0" width="57.6" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="135.5" font-size="7.0" fill="#595959">6</text>
+<text x="42" y="135.5" font-size="7.5" fill="#1F3050" font-weight="normal">Adquisición de equipos (Orion MX, Kronos, Hermes)</text>
+<text x="336" y="135.5" font-size="7.0" fill="#595959">30 d</text>
+<text x="378" y="135.5" font-size="7.0" fill="#595959">lun 04-01-27</text>
+<text x="434" y="135.5" font-size="7.0" fill="#595959">vie 12-02-27</text>
+<rect x="622.3" y="129.0" width="135.5" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="151.5" font-size="7.0" fill="#595959">7</text>
+<text x="42" y="151.5" font-size="7.5" fill="#1F3050" font-weight="normal">Armado de armario y montaje de equipos</text>
+<text x="336" y="151.5" font-size="7.0" fill="#595959">8 d</text>
+<text x="378" y="151.5" font-size="7.0" fill="#595959">lun 15-02-27</text>
+<text x="434" y="151.5" font-size="7.0" fill="#595959">mié 24-02-27</text>
+<rect x="764.5" y="145.0" width="33.9" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="167.5" font-size="7.0" fill="#595959">8</text>
+<text x="42" y="167.5" font-size="7.5" fill="#1F3050" font-weight="normal">Configuración de RTU, GPS, switch y HMI</text>
+<text x="336" y="167.5" font-size="7.0" fill="#595959">10 d</text>
+<text x="378" y="167.5" font-size="7.0" fill="#595959">jue 25-02-27</text>
+<text x="434" y="167.5" font-size="7.0" fill="#595959">mié 10-03-27</text>
+<rect x="798.4" y="161.0" width="47.4" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="183.5" font-size="7.0" fill="#595959">9</text>
+<text x="42" y="183.5" font-size="7.5" fill="#1F3050" font-weight="normal">Pruebas FAT en taller</text>
+<text x="336" y="183.5" font-size="7.0" fill="#595959">5 d</text>
+<text x="378" y="183.5" font-size="7.0" fill="#595959">jue 11-03-27</text>
+<text x="434" y="183.5" font-size="7.0" fill="#595959">mié 17-03-27</text>
+<rect x="845.8" y="177.0" width="23.7" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="199.5" font-size="7.0" fill="#595959">10</text>
+<text x="42" y="199.5" font-size="7.5" fill="#1F3050" font-weight="normal">Montaje en planta</text>
+<text x="336" y="199.5" font-size="7.0" fill="#595959">5 d</text>
+<text x="378" y="199.5" font-size="7.0" fill="#595959">jue 18-03-27</text>
+<text x="434" y="199.5" font-size="7.0" fill="#595959">mié 24-03-27</text>
+<rect x="869.5" y="193.0" width="23.7" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="215.5" font-size="7.0" fill="#595959">11</text>
+<text x="42" y="215.5" font-size="7.5" fill="#1F3050" font-weight="normal">Pruebas SAT locales</text>
+<text x="336" y="215.5" font-size="7.0" fill="#595959">3 d</text>
+<text x="378" y="215.5" font-size="7.0" fill="#595959">jue 25-03-27</text>
+<text x="434" y="215.5" font-size="7.0" fill="#595959">mar 30-03-27</text>
+<rect x="893.3" y="209.0" width="20.3" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="231.5" font-size="7.0" fill="#595959">12</text>
+<text x="42" y="231.5" font-size="7.5" fill="#1F3050" font-weight="normal">Pruebas SAT con el Coordinador</text>
+<text x="336" y="231.5" font-size="7.0" fill="#595959">5 d</text>
+<text x="378" y="231.5" font-size="7.0" fill="#595959">mié 31-03-27</text>
+<text x="434" y="231.5" font-size="7.0" fill="#595959">mar 06-04-27</text>
+<rect x="913.6" y="225.0" width="23.7" height="8" rx="1" fill="#3FA9BE"/>
+<text x="5" y="247.5" font-size="7.0" fill="#595959">13</text>
+<text x="42" y="247.5" font-size="7.5" fill="#1F3050" font-weight="normal">Carpeta TOP e informe final</text>
+<text x="336" y="247.5" font-size="7.0" fill="#595959">5 d</text>
+<text x="378" y="247.5" font-size="7.0" fill="#595959">mié 07-04-27</text>
+<text x="434" y="247.5" font-size="7.0" fill="#595959">mar 13-04-27</text>
+<rect x="937.3" y="241.0" width="23.7" height="8" rx="1" fill="#3FA9BE"/>
+<rect x="10" y="256" width="10" height="6" fill="#1F3864"/>
+<text x="23" y="262.0" font-size="7.0" fill="#595959">Resumen</text>
+<rect x="59" y="255" width="10" height="7" rx="1" fill="#3FA9BE"/>
+<text x="72" y="262.0" font-size="7.0" fill="#595959">Tarea</text>
+<rect x="102" y="255" width="10" height="7" fill="#E8ECF2"/>
+<text x="115" y="262.0" font-size="7.0" fill="#595959">Fin de semana</text>
+<text x="10" y="275.0" font-size="7.0" fill="#595959">PTS-SITR-ORION   Días hábiles, feriados nacionales descontados</text>
+<text x="961" y="275.0" font-size="7.0" fill="#595959" text-anchor="end">142 corridos · 98 hábiles</text>
+</svg>
+<figcaption>Figura 2. Carta Gantt del proyecto. La barra superior es el resumen del proyecto; las
+tareas van indentadas bajo ella. Las franjas grises corresponden a fines de semana.</figcaption>
+</figure>
 
 <h2 class="sub">3.3 Hitos de control</h2>
 
