@@ -100,7 +100,12 @@
   ul, ol { margin: 1.5mm 0 2.6mm; padding-left: 5.5mm; }
   li { margin: .9mm 0; text-align: justify; }
 
-  .pie-obj { font-size: 8.5pt; color: var(--gris); font-style: italic; margin: 0 0 4mm; }
+  .pie-obj { font-size:8.5pt; color:var(--gris); font-style:italic; margin:0 0 4mm; }
+  figure { margin:4mm 0 3mm; page-break-inside:avoid; }
+  figure svg { display:block; margin:0 auto; border:.7pt solid var(--gris-linea); border-radius:3px;
+                background:#fff; }
+  figcaption { font-size:8.5pt; color:var(--gris); font-style:italic; margin-top:1.5mm;
+                text-align:center; }
 
   /* encabezado de tres casillas (solo pantalla/impresión de cuerpo) */
   .enc { display: flex; justify-content: space-between; font-size: 8pt; color: var(--gris);
@@ -173,7 +178,7 @@ pruebas de aceptación en sitio (SAT), las pruebas con el Coordinador y el cierr
 <div class="nota">
   <b>Naturaleza de la mejora.</b> Esta iniciativa constituye una mejora de la plataforma de
   telecontrol adoptada por el coordinado. No corresponde a una exigencia del Coordinador sobre la
-  plataforma de telecontrol: la arquitectura de telecontrol existente —con RTU SaTECH, enlaces
+  plataforma de telecontrol: la arquitectura de telecontrol existente —con su concentrador actual, enlaces
   redundantes GTD y Movistar— fue reconocida por el Coordinador como conforme a los parámetros de
   desempeño, disponibilidad y calidad de la NTSyCS. El proyecto se ejecuta por decisión de inversión
   del coordinado, y su objetivo es elevar el estándar de disponibilidad, ciberseguridad y
@@ -182,7 +187,7 @@ pruebas de aceptación en sitio (SAT), las pruebas con el Coordinador y el cierr
 
 <h2 class="sub">1.1 Situación actual</h2>
 
-<p>El SITR de Cementos Melón opera sobre el sistema <b>Straton</b> como concentrador de las señales
+<p>El SITR de Cementos Melón opera sobre un sistema concentrador en fin de vida como base de las señales
 que se reportan al Coordinador. Sobre esa base se identifican las siguientes limitaciones, que son
 las que el proyecto aborda:</p>
 
@@ -191,7 +196,7 @@ las que el proyecto aborda:</p>
   <thead><tr><th>Limitación</th><th>Consecuencia operativa</th><th>Tratamiento en este proyecto</th></tr></thead>
   <tbody>
     <tr>
-      <td>Concentrador Straton en fin de vida</td>
+      <td>Concentrador actual en fin de vida</td>
       <td>Dificultad de soporte, repuestos y actualizaciones de seguridad</td>
       <td>Sustitución por Orion MX con OrionOS</td>
     </tr>
@@ -221,7 +226,7 @@ las que el proyecto aborda:</p>
 <h2 class="sub">1.2 Resultados esperados</h2>
 
 <div class="kpis">
-  <div class="kpi"><div class="v">Straton → Orion</div><div class="l">Sustitución del concentrador con plataforma soportada</div></div>
+  <div class="kpi"><div class="v">Orion MX</div><div class="l">Concentrador sobre plataforma soportada y actualizable</div></div>
   <div class="kpi"><div class="v">±1 µs</div><div class="l">Base de tiempo común por GPS Kronos 3R con IRIG-B</div></div>
   <div class="kpi"><div class="v">Red OT</div><div class="l">Segmentada, administrable y monitoreada por SNMP</div></div>
   <div class="kpi"><div class="v">DNP3 / IEC 104</div><div class="l">Protocolos hacia el Coordinador y consignas remotas</div></div>
@@ -261,33 +266,91 @@ concentra las señales de los equipos de campo y las publica hacia el Coordinado
 entrega la referencia de tiempo a la RTU y a los equipos que lo soporten; y el switch Hermes 2000
 provee la red OT segmentada sobre la que se transporta todo el tráfico.</p>
 
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto;max-width:980px" viewBox="0 0 980 678" font-family="Arial,Helvetica,sans-serif">
+<defs>
+<marker id="arrow-f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1F3864"/></marker>
+<marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#595959"/></marker>
+<marker id="arrow-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3FA9BE"/></marker>
+<marker id="arrow-v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1E7B34"/></marker>
+</defs>
+<rect width="100%" style="height:auto;max-width:980px" fill="#FFFFFF"/>
+<rect x="30" y="26" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="30" y="26" width="5" height="104" fill="#4A5568"/>
+<text x="46" y="45" font-size="10" font-weight="bold" fill="#4A5568" letter-spacing="1.2">EQUIPOS DE CAMPO</text>
+<rect x="117.5" y="56" width="153.1" height="54" rx="6" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="194.0" y="77" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Relé de subfrecuencia</text>
+<text x="194.0" y="92" font-size="9" fill="#595959" text-anchor="middle">EDAC BF · bahía 44 kV</text>
+<rect x="415.0" y="56" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="490.0" y="77" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Medidores eléctricos</text>
+<text x="490.0" y="92" font-size="9" fill="#595959" text-anchor="middle">subred de medidores</text>
+<rect x="711.0" y="56" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="786.0" y="77" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Otras protecciones</text>
+<text x="786.0" y="92" font-size="9" fill="#595959" text-anchor="middle">del mismo gabinete</text>
+<rect x="30" y="192" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="30" y="192" width="5" height="104" fill="#2E5A94"/>
+<text x="46" y="211" font-size="10" font-weight="bold" fill="#2E5A94" letter-spacing="1.2">RED OT Y SINCRONIZACIÓN</text>
+<rect x="193.0" y="222" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
+<text x="268.0" y="243" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Switch Hermes 2000</text>
+<text x="268.0" y="258" font-size="9" fill="#595959" text-anchor="middle">28 puertos · VLAN · RSTP</text>
+<rect x="637.0" y="222" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
+<text x="712.0" y="243" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">GPS Kronos 3R</text>
+<text x="712.0" y="258" font-size="9" fill="#595959" text-anchor="middle">GNSS · IRIG-B · ≤ ±100 µs</text>
+<rect x="30" y="358" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="30" y="358" width="5" height="104" fill="#1F3864"/>
+<text x="46" y="377" font-size="10" font-weight="bold" fill="#1F3864" letter-spacing="1.2">CONCENTRADOR</text>
+<rect x="415.0" y="388" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#1F3864" stroke-width="1.4"/>
+<text x="490.0" y="409" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">RTU Orion MX</text>
+<text x="490.0" y="424" font-size="9" fill="#595959" text-anchor="middle">OrionOS · DNP3 · alarmas</text>
+<text x="490.0" y="435" font-size="8" fill="#B07000" text-anchor="middle" font-style="italic">reemplaza al concentrador actual</text>
+<rect x="30" y="524" width="920" height="104" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
+<rect x="30" y="524" width="5" height="104" fill="#1E7B34"/>
+<text x="46" y="543" font-size="10" font-weight="bold" fill="#1E7B34" letter-spacing="1.2">ENLACE AL COORDINADOR</text>
+<rect x="119.0" y="554" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
+<text x="194.0" y="575" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace GTD</text>
+<text x="194.0" y="590" font-size="9" fill="#595959" text-anchor="middle">redundante</text>
+<rect x="415.0" y="554" width="150.0" height="54" rx="6" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
+<text x="490.0" y="575" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace Movistar</text>
+<text x="490.0" y="590" font-size="9" fill="#595959" text-anchor="middle">redundante</text>
+<rect x="709.5" y="554" width="153.1" height="54" rx="6" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
+<text x="786.0" y="575" font-size="10.5" font-weight="bold" fill="#1F3864" text-anchor="middle">Coordinador Eléctrico</text>
+<text x="786.0" y="590" font-size="9" fill="#595959" text-anchor="middle">señales SITR · consignas</text>
+<path d="M 194.0 110.0 C 194.0 166.0, 268.0 166.0, 268.0 222.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="231.0" y="163.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">DNP3 IP</text>
+<path d="M 490.0 110.0 C 490.0 166.0, 268.0 166.0, 268.0 222.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="379.0" y="163.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Modbus TCP</text>
+<path d="M 786.0 110.0 C 786.0 166.0, 268.0 166.0, 268.0 222.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 268.0 276.0 C 268.0 332.0, 490.0 332.0, 490.0 388.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="379.0" y="329.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Ethernet</text>
+<path d="M 712.0 276.0 C 712.0 332.0, 490.0 332.0, 490.0 388.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="601.0" y="329.0" font-size="8.5" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">IRIG-B / NTP</text>
+<path d="M 490.0 442.0 C 490.0 498.0, 194.0 498.0, 194.0 554.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 490.0 442.0 C 490.0 498.0, 490.0 498.0, 490.0 554.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 269.0 581.0 L 709.5 581.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 565.0 581.0 L 709.5 581.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+</svg>
+<figcaption>Figura 1. Arquitectura de telecontrol propuesta. Las flechas indican el sentido del flujo
+de datos y el protocolo empleado en cada tramo.</figcaption>
+</figure>
+
 <table>
-  <caption>Tabla 4. Equipos que componen la solución.</caption>
-  <thead><tr><th>Equipo</th><th>Part number</th><th>Función</th><th>Interfaces relevantes</th></tr></thead>
+  <caption>Tabla 4. Especificación de los equipos de la Figura 1.</caption>
+  <thead><tr><th>Equipo</th><th>Part number</th><th>Interfaces relevantes</th></tr></thead>
   <tbody>
     <tr>
       <td><b>RTU Orion MX</b></td>
       <td>OrionMX-IO-WR-2RU1-03-44-57-95-99</td>
-      <td>Concentrador de telecontrol y publicación al Coordinador</td>
       <td>8 DI, 3 DO; DNP3 IP; servidor XML; archivo de alarmas; lógica y matemáticas</td>
     </tr>
     <tr>
       <td><b>GPS Kronos 3R</b></td>
       <td>Kronos-3R-HVXX-TCXO-1XX-AU-C080-MT</td>
-      <td>Sincronización horaria de alta precisión</td>
       <td>GNSS, IRIG-B, NTP</td>
     </tr>
     <tr>
       <td><b>Switch Hermes 2000</b></td>
       <td>Hermes-2000-HVXX-4F-24T</td>
-      <td>Red OT administrable de subestación</td>
       <td>28 puertos, 4 de fibra; VLAN, RSTP; SNMP, Syslog, WebUI/CLI</td>
-    </tr>
-    <tr>
-      <td>Gabinete y HMI</td>
-      <td>Rittal 800×2000×800 · pantalla HMI</td>
-      <td>Alojamiento, alimentación y operación local</td>
-      <td>—</td>
     </tr>
   </tbody>
 </table>
