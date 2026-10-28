@@ -265,10 +265,11 @@ las que el proyecto aborda:</p>
 
 <h2 class="sub">2.1 Arquitectura objetivo</h2>
 
-<p>La solución incorpora tres equipos que operan como un conjunto integrado. La RTU Orion MX
-concentra las señales de los equipos de campo y las publica hacia el Coordinador; el GPS Kronos 3R
-entrega la referencia de tiempo a la RTU y a los equipos que lo soporten; y el switch Hermes 2000
-provee la red OT segmentada sobre la que se transporta todo el tráfico.</p>
+<p>La solución incorpora tres equipos que operan como un conjunto integrado. Los equipos de
+protección y medición del patio publican sus señales al switch Hermes 2000, que provee la red OT
+segmentada por la que se transporta todo el tráfico; la RTU Orion MX concentra esas señales y las
+publica al Coordinador; y el GPS Kronos 3R entrega la referencia de tiempo a la RTU y a los equipos
+que la soporten. La Figura 1 se lee de abajo hacia arriba: cada capa entrega a la superior.</p>
 
 <figure class="ancha">
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto" viewBox="0 0 971 696" font-family="Arial,Helvetica,sans-serif">
@@ -280,83 +281,81 @@ provee la red OT segmentada sobre la que se transporta todo el tráfico.</p>
 </defs>
 <rect width="971" height="696" fill="#FFFFFF"/>
 <rect x="16" y="18" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="16" y="18" width="5" height="92" fill="#4A5568"/>
-<text x="32" y="37" font-size="9.5" font-weight="bold" fill="#4A5568" letter-spacing="1">EQUIPOS DE CAMPO</text>
-<rect x="106.6" y="48" width="153.1" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
-<text x="183.2" y="69" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Relé de subfrecuencia</text>
-<text x="183.2" y="84" font-size="9" fill="#595959" text-anchor="middle">EDAC BF · bahía 44 kV</text>
-<rect x="410.5" y="48" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
-<text x="485.5" y="69" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Medidores eléctricos</text>
-<text x="485.5" y="84" font-size="9" fill="#595959" text-anchor="middle">subred de medidores</text>
-<rect x="712.8" y="48" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
-<text x="787.8" y="69" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Otras protecciones</text>
-<text x="787.8" y="84" font-size="9" fill="#595959" text-anchor="middle">del mismo gabinete</text>
+<rect x="16" y="18" width="5" height="92" fill="#0F4C2A"/>
+<text x="32" y="37" font-size="9.5" font-weight="bold" fill="#0F4C2A" letter-spacing="1">COORDINADOR</text>
+<rect x="381.8" y="48" width="207.5" height="50" rx="5" fill="#FFFFFF" stroke="#0F4C2A" stroke-width="1.4"/>
+<text x="485.5" y="69" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Coordinador Eléctrico Nacional</text>
+<text x="485.5" y="84" font-size="9" fill="#595959" text-anchor="middle">señales SITR · consignas</text>
 <rect x="16" y="154" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="16" y="154" width="5" height="92" fill="#2E5A94"/>
-<text x="32" y="173" font-size="9.5" font-weight="bold" fill="#2E5A94" letter-spacing="1">RED OT Y SINCRONIZACIÓN</text>
-<rect x="183.8" y="184" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
-<text x="258.8" y="205" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Switch Hermes 2000</text>
-<text x="258.8" y="220" font-size="9" fill="#595959" text-anchor="middle">28 puertos · VLAN · RSTP</text>
-<rect x="637.2" y="184" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
-<text x="712.2" y="205" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">GPS Kronos 3R</text>
-<text x="712.2" y="220" font-size="9" fill="#595959" text-anchor="middle">GNSS · IRIG-B · ≤ ±100 µs</text>
+<rect x="16" y="154" width="5" height="92" fill="#1E7B34"/>
+<text x="32" y="173" font-size="9.5" font-weight="bold" fill="#1E7B34" letter-spacing="1">ENLACES REDUNDANTES</text>
+<rect x="183.8" y="184" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
+<text x="258.8" y="205" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace GTD</text>
+<text x="258.8" y="220" font-size="9" fill="#595959" text-anchor="middle">camino A</text>
+<rect x="637.2" y="184" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
+<text x="712.2" y="205" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace Movistar</text>
+<text x="712.2" y="220" font-size="9" fill="#595959" text-anchor="middle">camino B</text>
 <rect x="16" y="290" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
 <rect x="16" y="290" width="5" height="92" fill="#1F3864"/>
-<text x="32" y="309" font-size="9.5" font-weight="bold" fill="#1F3864" letter-spacing="1">CONCENTRADOR</text>
+<text x="32" y="309" font-size="9.5" font-weight="bold" fill="#1F3864" letter-spacing="1">SUPERVISIÓN Y CONCENTRACIÓN</text>
 <rect x="410.5" y="320" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1F3864" stroke-width="1.4"/>
 <text x="485.5" y="341" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">RTU Orion MX</text>
 <text x="485.5" y="356" font-size="9" fill="#595959" text-anchor="middle">OrionOS · DNP3 · alarmas</text>
 <text x="485.5" y="363" font-size="8" fill="#B07000" text-anchor="middle" font-style="italic">reemplaza al concentrador actual</text>
 <rect x="16" y="426" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="16" y="426" width="5" height="92" fill="#1E7B34"/>
-<text x="32" y="445" font-size="9.5" font-weight="bold" fill="#1E7B34" letter-spacing="1">ENLACES REDUNDANTES</text>
-<rect x="183.8" y="456" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
-<text x="258.8" y="477" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace GTD</text>
-<text x="258.8" y="492" font-size="9" fill="#595959" text-anchor="middle">camino A</text>
-<rect x="637.2" y="456" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#1E7B34" stroke-width="1.4"/>
-<text x="712.2" y="477" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Enlace Movistar</text>
-<text x="712.2" y="492" font-size="9" fill="#595959" text-anchor="middle">camino B</text>
+<rect x="16" y="426" width="5" height="92" fill="#2E5A94"/>
+<text x="32" y="445" font-size="9.5" font-weight="bold" fill="#2E5A94" letter-spacing="1">RED OT Y SINCRONIZACIÓN</text>
+<rect x="183.8" y="456" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
+<text x="258.8" y="477" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Switch Hermes 2000</text>
+<text x="258.8" y="492" font-size="9" fill="#595959" text-anchor="middle">28 puertos · VLAN · RSTP</text>
+<rect x="637.2" y="456" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#2E5A94" stroke-width="1.4"/>
+<text x="712.2" y="477" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">GPS Kronos 3R</text>
+<text x="712.2" y="492" font-size="9" fill="#595959" text-anchor="middle">GNSS · IRIG-B · ≤ ±100 µs</text>
 <rect x="16" y="562" width="939" height="92" rx="8" fill="#F4F7FB" stroke="#C6CDD8" stroke-width="1"/>
-<rect x="16" y="562" width="5" height="92" fill="#0F4C2A"/>
-<text x="32" y="581" font-size="9.5" font-weight="bold" fill="#0F4C2A" letter-spacing="1">COORDINADOR</text>
-<rect x="381.8" y="592" width="207.5" height="50" rx="5" fill="#FFFFFF" stroke="#0F4C2A" stroke-width="1.4"/>
-<text x="485.5" y="613" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Coordinador Eléctrico Nacional</text>
-<text x="485.5" y="628" font-size="9" fill="#595959" text-anchor="middle">señales SITR · consignas</text>
-<path d="M 177.2 98.0 C 177.2 141.0, 236.8 141.0, 236.8 184.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="207.0" y="138.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">DNP3 IP</text>
-<path d="M 485.5 98.0 C 485.5 141.0, 258.8 141.0, 258.8 184.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="372.1" y="138.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Modbus TCP</text>
-<path d="M 793.8 98.0 C 793.8 141.0, 280.8 141.0, 280.8 184.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 255.8 234.0 C 255.8 277.0, 474.5 277.0, 474.5 320.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="365.1" y="274.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Ethernet</text>
-<path d="M 715.2 234.0 C 715.2 277.0, 496.5 277.0, 496.5 320.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<text x="605.9" y="274.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">IRIG-B / NTP</text>
-<path d="M 485.5 370.0 C 485.5 413.0, 258.8 413.0, 258.8 456.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 485.5 370.0 C 485.5 413.0, 712.2 413.0, 712.2 456.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 255.8 506.0 C 255.8 549.0, 474.5 549.0, 474.5 592.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
-<path d="M 715.2 506.0 C 715.2 549.0, 496.5 549.0, 496.5 592.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<rect x="16" y="562" width="5" height="92" fill="#4A5568"/>
+<text x="32" y="581" font-size="9.5" font-weight="bold" fill="#4A5568" letter-spacing="1">EQUIPOS DE PROTECCIÓN Y MEDICIÓN</text>
+<rect x="108.2" y="592" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="183.2" y="613" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Equipo de protección</text>
+<text x="183.2" y="628" font-size="9" fill="#595959" text-anchor="middle">EDAC BF · bahía 44 kV</text>
+<rect x="410.5" y="592" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="485.5" y="613" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Equipo de medición</text>
+<text x="485.5" y="628" font-size="9" fill="#595959" text-anchor="middle">subred de medidores</text>
+<rect x="712.8" y="592" width="150.0" height="50" rx="5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.4"/>
+<text x="787.8" y="613" font-size="10" font-weight="bold" fill="#1F3864" text-anchor="middle">Otras protecciones</text>
+<text x="787.8" y="628" font-size="9" fill="#595959" text-anchor="middle">del mismo gabinete</text>
+<path d="M 177.2 592.0 C 177.2 549.0, 236.8 549.0, 236.8 506.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="207.0" y="546.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">DNP3 IP</text>
+<path d="M 485.5 592.0 C 485.5 549.0, 258.8 549.0, 258.8 506.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="372.1" y="546.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Modbus TCP</text>
+<path d="M 793.8 592.0 C 793.8 549.0, 280.8 549.0, 280.8 506.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 255.8 456.0 C 255.8 413.0, 474.5 413.0, 474.5 370.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="365.1" y="410.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">Ethernet</text>
+<path d="M 715.2 456.0 C 715.2 413.0, 496.5 413.0, 496.5 370.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<text x="605.9" y="410.0" font-size="10" fill="#2E5A94" text-anchor="middle" paint-order="stroke" stroke="#FFFFFF" stroke-width="3">IRIG-B / NTP</text>
+<path d="M 485.5 320.0 C 485.5 277.0, 258.8 277.0, 258.8 234.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 485.5 320.0 C 485.5 277.0, 712.2 277.0, 712.2 234.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 255.8 184.0 C 255.8 141.0, 474.5 141.0, 474.5 98.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+<path d="M 715.2 184.0 C 715.2 141.0, 496.5 141.0, 496.5 98.0" fill="none" stroke="#595959" stroke-width="1.5" marker-end="url(#arrow-g)"/>
 </svg>
-<figcaption>Figura 1. Arquitectura de telecontrol propuesta. Las flechas indican el sentido del flujo
-de datos y el protocolo empleado en cada tramo.</figcaption>
+<figcaption>Figura 1. Arquitectura de telecontrol propuesta, de abajo hacia arriba: equipos de
+protección y medición, red OT, concentrador, enlaces redundantes y Coordinador. Las flechas indican el
+sentido del flujo de datos y el protocolo empleado en cada tramo.</figcaption>
 </figure>
 
 <table>
   <caption>Tabla 4. Especificación de los equipos de la Figura 1.</caption>
-  <thead><tr><th>Equipo</th><th>Part number</th><th>Interfaces relevantes</th></tr></thead>
+  <thead><tr><th>Equipo</th><th>Interfaces relevantes</th></tr></thead>
   <tbody>
     <tr>
       <td><b>RTU Orion MX</b></td>
-      <td>OrionMX-IO-WR-2RU1-03-44-57-95-99</td>
       <td>8 DI, 3 DO; DNP3 IP; servidor XML; archivo de alarmas; lógica y matemáticas</td>
     </tr>
     <tr>
       <td><b>GPS Kronos 3R</b></td>
-      <td>Kronos-3R-HVXX-TCXO-1XX-AU-C080-MT</td>
       <td>GNSS, IRIG-B, NTP</td>
     </tr>
     <tr>
       <td><b>Switch Hermes 2000</b></td>
-      <td>Hermes-2000-HVXX-4F-24T</td>
       <td>28 puertos, 4 de fibra; VLAN, RSTP; SNMP, Syslog, WebUI/CLI</td>
     </tr>
   </tbody>
